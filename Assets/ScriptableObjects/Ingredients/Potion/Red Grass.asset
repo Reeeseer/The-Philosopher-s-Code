@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122c31caf917e064391d1ba59f2a4f9c, type: 3}
+  m_Name: Red Grass
+  m_EditorClassIdentifier: 
+  Name: Red Grass
+  Description: Clump of red grass.
+  Effect: Damage
+  EffectStrength: 5
+  APCost: 1
