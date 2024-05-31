@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle 5.unity
     guid: 02ca0e5db166cb14e94217dab9ef0863
+  - enabled: 1
+    path: Assets/Scenes/Battle UI.unity
+    guid: 6acf2268e8cf23f42bf128980d3fce14
+  - enabled: 1
+    path: Assets/Scenes/Endless Mode.unity
+    guid: df6c78d3886878f42bdfd393f0432963
   m_configObjects: {}

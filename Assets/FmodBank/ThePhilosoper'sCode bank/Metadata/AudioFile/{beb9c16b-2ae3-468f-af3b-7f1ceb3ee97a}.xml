@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{beb9c16b-2ae3-468f-af3b-7f1ceb3ee97a}">
+		<property name="assetPath">
+			<value>Bloody punch.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.56266666666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02ebbbbb-8366-41dd-9540-15e1cabb4d90}</destination>
+		</relationship>
+	</object>
+</objects>

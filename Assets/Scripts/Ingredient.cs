@@ -2,17 +2,44 @@
 
 using System;
 using UnityEngine;
+using static IngredientDataOptions;
 
-[Serializable]
-public class Ingredient
+[CreateAssetMenu(fileName = "new Ingredient", menuName = "Create Ingredient", order = 1)]
+public class Ingredient : ScriptableObject
 {
-    public string Name;
-    public int Amount;
-    public int StartingAmount;
-    [TextArea] public string Description;
+    public string Name = "new Ingredient";
+    [TextArea] public string Description = "A new ingredient with placeholder text";
 
-    public void Restart()
+    /// <summary>
+    /// How many action points the ingredient costs to add to a potion.
+    /// use whole positive numbers or "var" for costs that are not constant
+    /// </summary>
+    public int APCost;
+
+    /// <summary>
+    /// the effect the ingredient has on the target of the potion
+    /// </summary>
+    public EffectType Effect;
+
+    /// <summary>
+    /// tells if this is a potion or code ingredient
+    /// </summary>
+    public IngredientType Type;
+
+    /// <summary>
+    /// the strength of the ingredient's effect, this is a constant for potion ingredients. For code ingredients this is determined by the left AP of the player.
+    /// </summary>
+    public int EffectStrength;
+
+    /// <summary>
+    /// use for code ingredients to set their strength, will do nothing on potion ingredients
+    /// </summary>
+    public void SetStrength()
     {
-        Amount = StartingAmount;
+        if (Type != IngredientType.Code)
+            return;
+
+        EffectStrength = GameManager.instance.Player.CurrentAP;
+        APCost = EffectStrength;
     }
 }

@@ -10,11 +10,8 @@ public class Potion : MonoBehaviour
 {
     [SerializeField] float _potionAnimationTime;
 
-    public List<string> PotionEffects = new List<string>();
-    public List<int> PotionEffectStrengths = new List<int>();
-    public string CodeEffect;
-    public int CodeEffectStrength;
-
+    public List<Ingredient> IngredientsInPotion;
+    public int CodeStrength;
     public Rigidbody RB { get; private set; }
 
     Collider _collider;
@@ -32,17 +29,12 @@ public class Potion : MonoBehaviour
         FmodEmitter = GetComponent<StudioEventEmitter>();
     }
 
-    internal void AddCodeIngredient(CodeIngredient ingredient)
+    public void AddIngredient(Ingredient ingredient)
     {
-        ingredient.SetStrength();
-        CodeEffect = ingredient.Effect;
-        CodeEffectStrength = ingredient.EffectStrength;
-    }
+        if(ingredient.Type == IngredientDataOptions.IngredientType.Code)
+            ingredient.SetStrength();
 
-    internal void AddPotionIngredient(PotionIngredient ingredient)
-    {
-        PotionEffects.Add(ingredient.Effect);
-        PotionEffectStrengths.Add(ingredient.EffectStrength);
+        IngredientsInPotion.Add(ingredient);
     }
 
     private IEnumerator ApplyEffectsToTargets()
@@ -71,7 +63,7 @@ public class Potion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            StartCoroutine(Hit());
+        StartCoroutine(Hit());
     }
 
     private IEnumerator Hit()
@@ -79,7 +71,7 @@ public class Potion : MonoBehaviour
         Disappear();
         yield return StartCoroutine(ApplyEffectsToTargets());
         yield return new WaitForSeconds(3);
-        TurnManager.instance.EnemyTurn();
+        BattleTurnManager.instance.EnemyTurn();
         Destroy(gameObject);
     }
 

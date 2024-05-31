@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ErrorMessage : MonoBehaviour
 {
     public Image _image;
-    TMP_Text _text;
+    public TMP_Text _text;
     StudioEventEmitter _emitter;
 
     private void OnEnable()
@@ -18,7 +18,6 @@ public class ErrorMessage : MonoBehaviour
 
     private IEnumerator Load()
     {
-        _text = GetComponentInChildren<TMP_Text>();
         _image.gameObject.SetActive(false);
         _emitter = GetComponent<StudioEventEmitter>();
         while (ErrorMessaging.instance == null) { yield return null; }

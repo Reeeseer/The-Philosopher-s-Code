@@ -24,7 +24,7 @@ public class EnemyAvatar: Fighter
     /// </summary>
     public void EndOfAttack()
     {
-        TurnManager.instance.PlayerTurn(GameManager.instance.Player);
+        BattleTurnManager.instance.PlayerTurn(GameManager.instance.Player);
     }
 
     /// <summary>
@@ -40,6 +40,6 @@ public class EnemyAvatar: Fighter
     protected override IEnumerator Die()
     {
         yield return base.Die();
-        GameManager.instance.EndRound();
+        GameManager.instance.Victory();
     }
 }

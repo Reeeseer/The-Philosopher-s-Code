@@ -1,4 +1,4 @@
-﻿using System;
+﻿// This script is the manager for the UI the player uses to take their turn
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,20 +7,17 @@ public class PlayerActionUI : MonoBehaviour
 {
     [SerializeField] Image _brewPanel;
     [SerializeField] Image _ifPanel;
-    [SerializeField] PotionIngredientsPanel _ingredientsPanel;
-    [SerializeField] CodeIngredientsPanel _codePanel;
+    [SerializeField] IngredientsPanel _ingredientsPanel;
 
-    void Start()
+
+    void Awake()
     {
-        StartCoroutine(Load());
+        BattleTurnManager.instance.OnPlayerTurnStart += PlayerTurnStart;
     }
 
-    IEnumerator Load()
+    public void PlayerAttack()
     {
-        while(TurnManager.instance == null)
-            yield return null;
-
-        TurnManager.instance.OnPlayerTurnStart += PlayerTurnStart;
+        GameManager.instance.Player.Attack();
     }
 
     void PlayerTurnStart(PlayerAvatar obj)
@@ -29,7 +26,6 @@ public class PlayerActionUI : MonoBehaviour
         _brewPanel.gameObject.SetActive(true);
         _ifPanel.gameObject.SetActive(false);
         _ingredientsPanel.gameObject.SetActive(false);
-        _codePanel.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -40,7 +36,6 @@ public class PlayerActionUI : MonoBehaviour
         _brewPanel.gameObject.SetActive(false);
         _ifPanel.gameObject.SetActive(true);
         _ingredientsPanel.gameObject.SetActive(false);
-        _codePanel.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -51,8 +46,7 @@ public class PlayerActionUI : MonoBehaviour
         _brewPanel.gameObject.SetActive(false);
         _ifPanel.gameObject.SetActive(false);
         _ingredientsPanel.gameObject.SetActive(true);
-        _ingredientsPanel.ListOutPotionIngredients();
-        _codePanel.gameObject.SetActive(false);
+        _ingredientsPanel.ListOutIngredients(IngredientDataOptions.IngredientType.Potion);
     }
 
     /// <summary>
@@ -68,9 +62,9 @@ public class PlayerActionUI : MonoBehaviour
 
         _brewPanel.gameObject.SetActive(false);
         _ifPanel.gameObject.SetActive(false);
-        _ingredientsPanel.gameObject.SetActive(false);
-        _codePanel.gameObject.SetActive(true);
-        _codePanel.ListOutCodeIngredients();
+        _ingredientsPanel.gameObject.SetActive(true);
+        _ingredientsPanel.ListOutIngredients(IngredientDataOptions.IngredientType.Code);
+
     }
 
     /// <summary>
@@ -81,11 +75,10 @@ public class PlayerActionUI : MonoBehaviour
         _brewPanel.gameObject.SetActive(false);
         _ifPanel.gameObject.SetActive(false);
         _ingredientsPanel.gameObject.SetActive(false);
-        _codePanel.gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
-        TurnManager.instance.OnPlayerTurnStart -= PlayerTurnStart;
+        BattleTurnManager.instance.OnPlayerTurnStart -= PlayerTurnStart;
     }
 }

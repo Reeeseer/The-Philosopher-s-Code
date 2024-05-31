@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10486908}
-  m_LocalRotation: {x: 0.000000104795284, y: 0.72232425, z: -0.69155455, w: 0.00000010945799}
+  m_LocalRotation: {x: -0.000000104795284, y: 0.72232425, z: -0.69155455, w: -0.00000010945799}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -517,11 +517,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1742292721
-      Data2: 1189687094
-      Data3: 902245011
-      Data4: -1048023094
-    Path: event:/Input
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -529,9 +529,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: InputSuccess
-    Value: 1
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -1091,6 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _filler: {fileID: 1812907426}
   _owner: {fileID: 1201659479}
+  _id: 
 --- !u!1 &228561734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _children: {fileID: 1353003355}
+  _returnToMenu: {fileID: 0}
+  _continue: {fileID: 0}
+  _text: {fileID: 0}
 --- !u!114 &251165886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,11 +1212,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1383899744
-      Data2: 1110792214
-      Data3: 979736713
-      Data4: 1959712360
-    Path: event:/Victory
+      Data1: -1013347305
+      Data2: 1323503243
+      Data3: -641080675
+      Data4: -813223941
+    Path: event:/Defeat
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -2120,6 +2122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 1734289196}
+  _text: {fileID: 0}
 --- !u!114 &341500478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,11 +2138,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1742292721
-      Data2: 1189687094
-      Data3: 902245011
-      Data4: -1048023094
-    Path: event:/Input
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -2147,9 +2150,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: InputSuccess
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -2303,10 +2304,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -2604,10 +2605,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -3833,7 +3834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &563072916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3942,7 +3943,6 @@ MonoBehaviour:
   _brewPanel: {fileID: 823110592}
   _ifPanel: {fileID: 2059358772}
   _ingredientsPanel: {fileID: 725184401}
-  _codePanel: {fileID: 30339112}
 --- !u!1 &568417574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,11 +4792,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1742292721
-      Data2: 1189687094
-      Data3: 902245011
-      Data4: -1048023094
-    Path: event:/Input
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -4804,9 +4804,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: InputSuccess
-    Value: 1
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -5337,9 +5335,9 @@ RectTransform:
   m_Father: {fileID: 1472017197}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 109.44535, y: -76.6}
   m_SizeDelta: {x: 218.8907, y: 153.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783981338
@@ -5451,10 +5449,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -5820,7 +5818,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 832653684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed1e96060e26904e8f65255ea7c244c, type: 3}
+  m_Script: {fileID: 11500000, guid: e1eebdff139109146be6bacf13854023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &832653686
@@ -7527,10 +7525,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -8697,6 +8695,7 @@ Transform:
   - {fileID: 832653686}
   - {fileID: 228561736}
   - {fileID: 100618484}
+  - {fileID: 1366748099}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9264,9 +9263,9 @@ RectTransform:
   m_Father: {fileID: 1472017197}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 109.44535, y: -237.16089}
   m_SizeDelta: {x: 218.8907, y: 153.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332648696
@@ -9378,10 +9377,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -9629,6 +9628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _children: {fileID: 1630062082}
+  _returnToMenu: {fileID: 0}
+  _continue: {fileID: 0}
+  _text: {fileID: 0}
 --- !u!114 &1364683065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9644,10 +9646,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1383899744
-      Data2: 1110792214
-      Data3: 979736713
-      Data4: 1959712360
+      Data1: 226408266
+      Data2: 1257903772
+      Data3: -872271226
+      Data4: 674181779
     Path: event:/Victory
   Event: 
   PlayEvent: 0
@@ -9694,6 +9696,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   PlayerActionUi: {fileID: 0}
+  EnemyData: {fileID: 11400000, guid: ab10ee4576cabcb4fbccb63d9a785446, type: 2}
+  targets: []
 --- !u!4 &1366748099
 Transform:
   m_ObjectHideFlags: 0
@@ -9702,12 +9706,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366748097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: -662.083, y: 359.99487, z: -2.0842896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1242132384}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382025733
 GameObject:
@@ -9773,10 +9777,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -687176023
-      Data2: 1163271591
-      Data3: -640080455
-      Data4: -1791734151
+      Data1: 264540759
+      Data2: 1247044216
+      Data3: -468114296
+      Data4: 2041710303
     Path: event:/Battle
   Event: 
   PlayEvent: 1
@@ -9849,9 +9853,9 @@ RectTransform:
   m_Father: {fileID: 725184397}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 266.30127, y: -170.378}
   m_SizeDelta: {x: 522.24, y: 337.5681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1440454089
@@ -10004,10 +10008,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -10138,9 +10142,9 @@ RectTransform:
   m_Father: {fileID: 725184397}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1557.3131, y: -170.378}
   m_SizeDelta: {x: 248.8813, y: 321.1218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472017198
@@ -10411,10 +10415,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1541359167
-      Data2: 1127120583
-      Data3: -114535777
-      Data4: -485842979
+      Data1: -14328244
+      Data2: 1176148854
+      Data3: -2104234309
+      Data4: 1303015727
     Path: event:/Punch
   Event: 
   PlayEvent: 0
@@ -11741,6 +11745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _filler: {fileID: 1909383456}
   _owner: {fileID: 1527806236}
+  _id: 
 --- !u!1 &1772001090
 GameObject:
   m_ObjectHideFlags: 0
@@ -12210,10 +12215,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1351327048
-      Data2: 1271410702
-      Data3: -350874212
-      Data4: -134236914
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
     Path: event:/Click
   Event: 
   PlayEvent: 19
@@ -13499,9 +13504,9 @@ RectTransform:
   m_Father: {fileID: 725184397}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 980.14685, y: -170.378}
   m_SizeDelta: {x: 884.726, y: 316.835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2055314341
@@ -14294,9 +14299,9 @@ RectTransform:
   m_Father: {fileID: 818536490}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250.87, y: -127.7488}
   m_SizeDelta: {x: 490, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &2534788512980347732
@@ -14623,6 +14628,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: Params.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Potion Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1673495056
+      objectReference: {fileID: 0}
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1222711070
+      objectReference: {fileID: 0}
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 295442611
+      objectReference: {fileID: 0}
+    - target: {fileID: -4564260113038922719, guid: 4a422f70e4ebbcb4292b132a64d40957,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1603933948
+      objectReference: {fileID: 0}
     - target: {fileID: 1496702931402570798, guid: 4a422f70e4ebbcb4292b132a64d40957,
         type: 3}
       propertyPath: m_RootOrder

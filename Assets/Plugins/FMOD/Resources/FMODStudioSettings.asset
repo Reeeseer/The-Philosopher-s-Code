@@ -536,9 +536,9 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../Users/reees/Downloads/Philosiper Code Bank/Philosiper
-    Code Bank.fspro
-  sourceBankPath: ../../../Users/reees/Downloads/Philosiper Code Bank/Build
+  sourceProjectPath: Assets/FmodBank/ThePhilosoper'sCode bank/ThePhilosoper'sCode
+    bank.fspro
+  sourceBankPath: Assets/FmodBank/ThePhilosoper'sCode bank/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -563,7 +563,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Music
-  - Sound Effects
+  - SoundEffects
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

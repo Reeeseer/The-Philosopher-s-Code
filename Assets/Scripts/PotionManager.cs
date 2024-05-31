@@ -27,7 +27,7 @@ public class PotionManager : MonoBehaviour
         }
     }
 
-    public void AddIngredientToPotion(PotionIngredient ingredient)
+    public void AddIngredientToPotion(Ingredient ingredient)
     {
         if(CurrentPotion == null)
         {
@@ -35,17 +35,7 @@ public class PotionManager : MonoBehaviour
             CurrentPotion.Initialize();
         }
 
-        CurrentPotion.AddPotionIngredient(ingredient);
-    }
-
-    public void AddCodeToPotion(CodeIngredient ingredient)
-    {
-        if (CurrentPotion == null)
-        {
-            CurrentPotion = new();
-        }
-
-        CurrentPotion.AddCodeIngredient(ingredient);
+        CurrentPotion.AddIngredient(ingredient);
     }
 
     public void ThrowPotion()

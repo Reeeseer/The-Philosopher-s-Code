@@ -1,33 +1,64 @@
 ﻿using FMODUnity;
 using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ContinuePrompt : MonoBehaviour
 {
     [SerializeField] Transform _children;
+    [SerializeField] Button _returnToMenu;
+    [SerializeField] Button _continue;
+
+    [SerializeField] TMP_Text _text;
     StudioEventEmitter _emitter;
 
     void OnEnable()
     {
-        _children.gameObject.SetActive(false);    
-        _emitter = GetComponent<StudioEventEmitter>();
+        StartCoroutine(Load());
     }
 
-    public void Activate()
+    public IEnumerator Load()
+    {
+        while (GameManager.instance == null) { yield return null;}
+        _children.gameObject.SetActive(true);
+        _emitter = GetComponent<StudioEventEmitter>();
+        _text = GetComponentInChildren<TMP_Text>();
+        GameManager.instance.OnGameOver += Activate;
+        _children.gameObject.SetActive(false);
+
+    }
+
+    public void Activate(bool win)
     {
         _children.gameObject.SetActive(true);
+        if (win)
+        {
+            _text.text = "You Won, Next Battle?";
+            _continue.onClick.AddListener(NextFight);
+            _continue.GetComponentInChildren<TMP_Text>().text = "Next Battle";
+        }
+        else
+        {
+            _text.text = "You lost, Try Again?";
+            _continue.onClick.AddListener(Restart);
+            _continue.GetComponentInChildren<TMP_Text>().text = "Restart?";
+        }
         _emitter.Play();
         FindObjectOfType<BMG>().gameObject.SetActive(false);
     }
 
-    public void GoToLevel(int levelIndex)
+    public void NextFight()
     {
-        var operation = SceneManager.LoadSceneAsync(levelIndex);
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadSceneAsync(scene.buildIndex + 1);
+        _continue.onClick.RemoveListener(NextFight);
     }
 
-    public void ReturnToMenu()
+    public void Restart()
     {
-        var operation = SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
     }
 }

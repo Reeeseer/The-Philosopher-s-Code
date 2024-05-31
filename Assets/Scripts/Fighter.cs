@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,50 +21,56 @@ public class Fighter : MonoBehaviour, IAmTarget
     {
         int interations = 1;
         int multiples = 1;
-        switch (potion.CodeEffect)
+        Ingredient codeIngredient = null;
+        foreach (var i in potion.IngredientsInPotion)
         {
-            case "ForLoop":
-                interations += potion.CodeEffectStrength;
-                break;
+            if (i.Type == IngredientDataOptions.IngredientType.Code)
+                codeIngredient = i;
+        }
+        if (codeIngredient != null)
+        {
+            switch (codeIngredient.Effect)
+            {
+                case IngredientDataOptions.EffectType.ForLoop:
+                    interations += potion.CodeStrength;
+                    break;
 
-            case "Multiply":
-                multiples += potion.CodeEffectStrength;
-                break;
+                case IngredientDataOptions.EffectType.Multiply:
+                    multiples += potion.CodeStrength;
+                    break;
 
-            case "Return":
-                ReturnToMenu();
-                break;
-
-
+                case IngredientDataOptions.EffectType.Return:
+                    ReturnToMenu();
+                    break;
+            }
         }
 
-        for (int i = 0; i < interations; i++)
+        foreach (var i in potion.IngredientsInPotion)
         {
-            var effectList = potion.PotionEffects;
-            var strengthList = potion.PotionEffectStrengths;
-            int index = 0;
-            foreach (var e in effectList)
-            {
+            if (i.Type != IngredientDataOptions.IngredientType.Potion)
+                continue;
 
-                switch (e)
+            for (int j = 0; j < interations; j++)
+            {
+                switch (i.Effect)
                 {
-                    case "Damage":
-                        ApplyDamage(strengthList[index] * multiples);
+                    case IngredientDataOptions.EffectType.Damage:
+                        ApplyDamage(i.EffectStrength * multiples);
                         potion.TriggerParticle("Damage");
                         potion.FmodEmitter.EventInstance.setParameterByNameWithLabel("EffectType", "Damage");
                         potion.FmodEmitter.Play();
                         yield return new WaitForSeconds(0.2f);
                         break;
-                    case "Heal":
-                        ApplyHealing(strengthList[index] * multiples);
+                    case IngredientDataOptions.EffectType.Healing:
+                        ApplyHealing(i.EffectStrength * multiples);
                         potion.TriggerParticle("Heal");
                         potion.FmodEmitter.EventInstance.setParameterByNameWithLabel("EffectType", "Heal");
                         potion.FmodEmitter.Play();
                         yield return new WaitForSeconds(0.2f);
                         break;
                 }
-                index++;
             }
+
         }
     }
 
@@ -84,7 +91,8 @@ public class Fighter : MonoBehaviour, IAmTarget
     {
         CurrHealth -= damage;
         OnHealthChanged?.Invoke(CurrHealth, MaxHealth);
-        if(CurrHealth <= 0 && !GameManager.instance.GameOver)
+
+        if (CurrHealth <= 0 && !GameManager.instance.GameOver)
         {
             GameManager.instance.GameOver = true;
             var player = GetComponent<PlayerAvatar>();
@@ -100,9 +108,9 @@ public class Fighter : MonoBehaviour, IAmTarget
         yield return new WaitForSeconds(2);
         foreach (var model in GetComponentsInChildren<MeshRenderer>())
         {
-            model.enabled= false;
+            model.enabled = false;
         }
         yield return new WaitForSeconds(1);
-        
+
     }
 }

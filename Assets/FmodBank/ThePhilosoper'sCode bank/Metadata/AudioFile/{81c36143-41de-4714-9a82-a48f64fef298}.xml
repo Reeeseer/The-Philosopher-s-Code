@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{81c36143-41de-4714-9a82-a48f64fef298}">
+		<property name="assetPath">
+			<value>Battle Theme 1_demo.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>47.993310657596375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02ebbbbb-8366-41dd-9540-15e1cabb4d90}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -15,21 +15,22 @@ public class GameManager : MonoBehaviour
     public PlayerAvatar Player;
     public EnemyAvatar Enemy;
     public PlayerActionUI PlayerActionUi;
+    public EnemyData EnemyData;
 
-    public List<IAmTarget> targets = new();
+    public List<Fighter> targets = new();
 
     public Action GameRestart;
+    public Action<bool> OnGameOver;
     public bool GameOver { get; internal set; }
 
-    internal void EndRound()
+    internal void Victory()
     {
-        _victoryScreen.Activate();
+        OnGameOver.Invoke(true);
     }
 
     internal void LoseState()
     {
-            _gameoverScreen.Activate();
-            PlayerActionUi.DisableActionUi();
+        OnGameOver.Invoke(false);
     }
 
     private void Awake()
@@ -45,7 +46,6 @@ public class GameManager : MonoBehaviour
 
         Player = FindObjectOfType<PlayerAvatar>();
         Enemy = FindObjectOfType<EnemyAvatar>();
-        PlayerActionUi = FindObjectOfType<PlayerActionUI>();
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         Debug.Log(SceneManager.GetActiveScene().name);
     }
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         yield return null;
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            IngredientsManager.Instance.ResetIngredients();
+            InventoryManager.Instance.ResetIngredients();
         }
 
     }

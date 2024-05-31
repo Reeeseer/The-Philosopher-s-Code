@@ -8,13 +8,23 @@ public class PlayerAvatar : Fighter
     public int MaxAp;
 
     public Action<int> OnAPChange;
+    public Action<int> OnHPChange;
 
     protected override void OnEnable()
     {
-        base.OnEnable();
-        TurnManager.instance.OnPlayerTurnStart += TurnStart;
+        StartCoroutine(Load());
     }
 
+    public IEnumerator Load()
+    {
+        while (BattleTurnManager.instance == null)
+        {
+            yield return null;
+        }
+
+        base.OnEnable();
+        BattleTurnManager.instance.OnPlayerTurnStart += TurnStart;
+    }
     private void TurnStart(PlayerAvatar obj)
     {
         CurrentAP = MaxAp;
@@ -45,7 +55,7 @@ public class PlayerAvatar : Fighter
 
     private void OnDisable()
     {
-        TurnManager.instance.OnPlayerTurnStart -= TurnStart;
+        BattleTurnManager.instance.OnPlayerTurnStart -= TurnStart;
     }
 
     internal void Attack()

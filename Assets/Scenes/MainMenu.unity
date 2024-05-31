@@ -544,8 +544,6 @@ RectTransform:
   - {fileID: 1551182421}
   - {fileID: 703058185}
   - {fileID: 1041921845}
-  - {fileID: 1170517655}
-  - {fileID: 2035295237}
   m_Father: {fileID: 870403560}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -923,11 +921,11 @@ RectTransform:
   m_Father: {fileID: 1170517655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1149, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 356.4756, y: 89.1189}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &214409258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,7 +1697,7 @@ GameObject:
   - component: {fileID: 657637170}
   - component: {fileID: 657637169}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,6 +1910,7 @@ GameObject:
   - component: {fileID: 703058188}
   - component: {fileID: 703058187}
   - component: {fileID: 703058186}
+  - component: {fileID: 703058189}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1996,6 +1995,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 703058189}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703058187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +2045,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703058184}
   m_CullTransparentMesh: 1
+--- !u!114 &703058189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703058184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &734189024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,21 +2105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9976a8a4afa2b42a3ca3315c2f8a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PotionIngredientsList:
-  - Name: 
-    Amount: 5
-    StartingAmount: 0
-    Description: 
-    Effect: 
-    EffectStrength: 0
-    APCost: 0
-  CodeIngredientsList:
-  - Name: 
-    Amount: 5
-    StartingAmount: 0
-    Description: 
-    Effect: 
-    EffectStrength: 0
+  IngredientsList:
+  - Amount: 50
+    Ingredient: {fileID: 11400000, guid: 71f00b735eaccce4e871864abb8a3e10, type: 2}
+  - Amount: 50
+    Ingredient: {fileID: 11400000, guid: 15c8d001331fc204fb4d1958a10faaa9, type: 2}
 --- !u!4 &734189026
 Transform:
   m_ObjectHideFlags: 0
@@ -2125,10 +2157,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -796558178
-      Data2: 1154126649
-      Data3: 1729282971
-      Data4: -1263048164
+      Data1: 774617903
+      Data2: 1293596687
+      Data3: -965323120
+      Data4: 1420962114
     Path: event:/Menu
   Event: 
   PlayEvent: 1
@@ -2343,6 +2375,7 @@ GameObject:
   - component: {fileID: 802109986}
   - component: {fileID: 802109985}
   - component: {fileID: 802109984}
+  - component: {fileID: 802109987}
   m_Layer: 5
   m_Name: Endless Mode
   m_TagString: Untagged
@@ -2417,7 +2450,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 870403556}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayEndlessMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 802109987}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2465,6 +2510,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802109982}
   m_CullTransparentMesh: 1
+--- !u!114 &802109987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802109982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &807192440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,7 +3115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creditsPanel: {fileID: 2035295238}
-  _controlsPanel: {fileID: 1170517656}
+  _controlsPanel: {fileID: 1733054806}
 --- !u!114 &870403557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3117,6 +3193,8 @@ RectTransform:
   m_Children:
   - {fileID: 160488039}
   - {fileID: 657637168}
+  - {fileID: 2035295237}
+  - {fileID: 1733054808}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3558,6 +3636,7 @@ GameObject:
   - component: {fileID: 1041921848}
   - component: {fileID: 1041921847}
   - component: {fileID: 1041921846}
+  - component: {fileID: 1041921849}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -3642,6 +3721,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1041921849}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1041921847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,6 +3771,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041921844}
   m_CullTransparentMesh: 1
+--- !u!114 &1041921849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041921844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1101402590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3949,7 @@ GameObject:
   - component: {fileID: 1162767529}
   - component: {fileID: 1162767528}
   - component: {fileID: 1162767527}
+  - component: {fileID: 1162767530}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -3901,7 +4024,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 870403556}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayCampaign
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1162767530}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3949,6 +4084,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162767525}
   m_CullTransparentMesh: 1
+--- !u!114 &1162767530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162767525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1170517654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,7 +4132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1170517655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3982,13 +4148,13 @@ RectTransform:
   - {fileID: 1959865798}
   - {fileID: 1930059270}
   - {fileID: 214409257}
-  m_Father: {fileID: 160488039}
+  m_Father: {fileID: 1733054808}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.141, y: 87.69577}
-  m_SizeDelta: {x: 1723.2555, y: 961.7764}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170517656
 MonoBehaviour:
@@ -4966,6 +5132,7 @@ GameObject:
   - component: {fileID: 1527315285}
   - component: {fileID: 1527315284}
   - component: {fileID: 1527315283}
+  - component: {fileID: 1527315286}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -5050,6 +5217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1527315286}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1527315284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5088,6 +5267,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527315281}
   m_CullTransparentMesh: 1
+--- !u!114 &1527315286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527315281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1551182420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,6 +5310,7 @@ GameObject:
   - component: {fileID: 1551182424}
   - component: {fileID: 1551182423}
   - component: {fileID: 1551182422}
+  - component: {fileID: 1551182425}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -5184,6 +5395,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1551182425}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1551182423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5222,6 +5445,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551182420}
   m_CullTransparentMesh: 1
+--- !u!114 &1551182425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551182420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 49102026
+      Data2: 1326175471
+      Data3: -1613395559
+      Data4: -883725008
+    Path: event:/Click
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1719343991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,6 +5513,83 @@ RectTransform:
   m_AnchoredPosition: {x: 1811.9, y: -307.26}
   m_SizeDelta: {x: 1781.9, y: 153.63}
   m_Pivot: {x: 1, y: 1}
+--- !u!1 &1733054805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733054808}
+  - component: {fileID: 1733054807}
+  - component: {fileID: 1733054806}
+  m_Layer: 5
+  m_Name: Controls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1733054806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733054805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.07058824, g: 0.07058824, b: 0.07058824, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1733054807
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733054805}
+  m_CullTransparentMesh: 1
+--- !u!224 &1733054808
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733054805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1170517655}
+  m_Father: {fileID: 870403560}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0005493164, y: 0.0004272461}
+  m_SizeDelta: {x: 332.41, y: -225.22}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1757128476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,12 +6087,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2015399554}
-  m_Father: {fileID: 160488039}
+  m_Father: {fileID: 870403560}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 87.69577}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 1841.9061, y: 961.77637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2035295238
