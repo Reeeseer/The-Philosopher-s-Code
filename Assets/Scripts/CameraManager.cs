@@ -1,8 +1,6 @@
 using Cinemachine;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -29,7 +27,7 @@ public class CameraManager : MonoBehaviour
             ChangeAngle();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && !Stopped)
+        if (Input.GetKeyDown(KeyCode.Space) && !Stopped)
         {
             StopCameraMovement();
         }

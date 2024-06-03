@@ -1,5 +1,4 @@
 ﻿using FMODUnity;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -22,10 +21,11 @@ public class ContinuePrompt : MonoBehaviour
 
     public IEnumerator Load()
     {
-        while (GameManager.instance == null) { yield return null;}
+        while (GameManager.instance == null) { yield return null; }
         _children.gameObject.SetActive(true);
         _emitter = GetComponent<StudioEventEmitter>();
         _text = GetComponentInChildren<TMP_Text>();
+        GameManager.instance.OnGameOver += Activate;
         GameManager.instance.OnGameOver += Activate;
         _children.gameObject.SetActive(false);
 

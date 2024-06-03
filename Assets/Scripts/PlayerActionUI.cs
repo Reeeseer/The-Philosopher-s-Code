@@ -1,5 +1,4 @@
 ﻿// This script is the manager for the UI the player uses to take their turn
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 

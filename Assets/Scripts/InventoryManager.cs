@@ -1,8 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -21,17 +19,16 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
-    public void ResetIngredients(IngredientPreset preset)
+    public void SetInventory(IngredientPreset preset)
     {
         //TODO: set up a scriptable object for inventory resetting
         IngredientsList = preset.Ingredients;
     }
-}
 
-public class IngredientPreset : ScriptableObject
-{
-    public List<InventorySlot> Ingredients;
+    internal void ResetIngredients(object inventoryPreset)
+    {
+        throw new NotImplementedException();
+    }
 }

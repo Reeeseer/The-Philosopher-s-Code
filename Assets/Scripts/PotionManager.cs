@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PotionManager : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class PotionManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -29,7 +27,7 @@ public class PotionManager : MonoBehaviour
 
     public void AddIngredientToPotion(Ingredient ingredient)
     {
-        if(CurrentPotion == null)
+        if (CurrentPotion == null)
         {
             CurrentPotion = Instantiate(PotionPrefab, _potionSpawn);
             CurrentPotion.Initialize();

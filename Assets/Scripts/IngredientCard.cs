@@ -41,12 +41,12 @@ public class IngredientCard : MonoBehaviour
 
         _apCost.text = slot.Ingredient.APCost.ToString();
 
-        if(slot.Ingredient.Type == IngredientDataOptions.IngredientType.Code)
+        if (slot.Ingredient.Type == IngredientDataOptions.IngredientType.Code)
         {
             _apCost.text = GameManager.instance.Player.CurrentAP.ToString();
         }
 
-        if(slot.Amount == 0)
+        if (slot.Amount == 0)
         {
             _button.interactable = false;
         }

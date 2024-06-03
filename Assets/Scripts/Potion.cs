@@ -31,7 +31,7 @@ public class Potion : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        if(ingredient.Type == IngredientDataOptions.IngredientType.Code)
+        if (ingredient.Type == IngredientDataOptions.IngredientType.Code)
             ingredient.SetStrength();
 
         IngredientsInPotion.Add(ingredient);

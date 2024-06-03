@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +7,10 @@ public class Fighter : MonoBehaviour, IAmTarget
 {
     public int MaxHealth;
     public int CurrHealth;
+
+    /// <summary>
+    /// Updates health values, args are Current Health then Max Health
+    /// </summary>
     public Action<int, int> OnHealthChanged;
 
     protected Animator _animator;

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b408445434bd97d48a7a58e66c10fc2c, type: 3}
+  m_Name: Campaign
+  m_EditorClassIdentifier: 
+  Ingredients:
+  - Amount: 20
+    Ingredient: {fileID: 11400000, guid: 71f00b735eaccce4e871864abb8a3e10, type: 2}
+  - Amount: 20
+    Ingredient: {fileID: 11400000, guid: e4ba40413a1732940926305d6c2e609b, type: 2}
+  - Amount: 10
+    Ingredient: {fileID: 11400000, guid: 144a9b5bb6abd3f4d99a7f4113bafc9d, type: 2}
+  - Amount: 10
+    Ingredient: {fileID: 11400000, guid: 7e13736c904983e4a84c207496dbec03, type: 2}
+  - Amount: 5
+    Ingredient: {fileID: 11400000, guid: 5064431a943af0c478ef5350369d622a, type: 2}
+  - Amount: 5
+    Ingredient: {fileID: 11400000, guid: 4286a9a58d452da4eb8822ff2485a32a, type: 2}
+  - Amount: 5
+    Ingredient: {fileID: 11400000, guid: 15c8d001331fc204fb4d1958a10faaa9, type: 2}
+  - Amount: 5
+    Ingredient: {fileID: 11400000, guid: b920233d04704b341a491501291f4f11, type: 2}
+  - Amount: 1
+    Ingredient: {fileID: 11400000, guid: 7aa3757fd48858749bc9007c8ab205a0, type: 2}

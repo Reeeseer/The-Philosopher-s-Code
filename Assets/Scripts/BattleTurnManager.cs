@@ -24,7 +24,7 @@ public class BattleTurnManager : MonoBehaviour
 
         if (SceneManager.GetSceneByName("Battle UI").isLoaded != true)
             SceneManager.LoadSceneAsync("Battle UI", LoadSceneMode.Additive);
-        
+
     }
 
     private void OnEnable()
@@ -32,7 +32,7 @@ public class BattleTurnManager : MonoBehaviour
         StartCoroutine(StartGame());
     }
 
-    IEnumerator StartGame()
+    public IEnumerator StartGame()
     {
         while (!SceneManager.GetSceneByName("Battle UI").isLoaded) { yield return null; }
         PlayerTurn(GameManager.instance.Player);

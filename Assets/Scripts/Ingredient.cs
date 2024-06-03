@@ -1,6 +1,6 @@
 ﻿//This script is used for holding data about the ingredients the player has access to
 
-using System;
+using UnityEditor;
 using UnityEngine;
 using static IngredientDataOptions;
 
@@ -42,4 +42,11 @@ public class Ingredient : ScriptableObject
         EffectStrength = GameManager.instance.Player.CurrentAP;
         APCost = EffectStrength;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        Name = name;
+    }
+#endif
 }

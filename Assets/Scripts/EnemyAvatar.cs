@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyAvatar: Fighter
+public class EnemyAvatar : Fighter
 {
     [SerializeField] int _damage;
     StudioEventEmitter _emitter;
@@ -40,6 +40,17 @@ public class EnemyAvatar: Fighter
     protected override IEnumerator Die()
     {
         yield return base.Die();
-        GameManager.instance.Victory();
+        GameManager.instance.EnemyKilled();
+        Destroy(gameObject);
+    }
+
+    internal IEnumerator SetStats(int hp, int damage)
+    {
+        MaxHealth = hp;
+        CurrHealth = MaxHealth;
+        _damage = damage;
+        while (OnHealthChanged == null) yield return null;
+
+        OnHealthChanged.Invoke(CurrHealth, MaxHealth);
     }
 }
