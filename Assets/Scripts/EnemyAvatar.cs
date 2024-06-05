@@ -8,9 +8,9 @@ public class EnemyAvatar : Fighter
     [SerializeField] int _damage;
     StudioEventEmitter _emitter;
 
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         _emitter = GetComponent<StudioEventEmitter>();
     }
 
@@ -24,7 +24,7 @@ public class EnemyAvatar : Fighter
     /// </summary>
     public void EndOfAttack()
     {
-        BattleTurnManager.instance.PlayerTurn(GameManager.instance.Player);
+        BattleTurnManager.instance.PlayerTurn(GameManager.Instance.Player);
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ public class EnemyAvatar : Fighter
     /// </summary>
     public void AttackConnect()
     {
-        GameManager.instance.Player.TakeAttack(_damage);
+        GameManager.Instance.Player.TakeAttack(_damage);
         _emitter.Play();
 
     }
@@ -40,7 +40,7 @@ public class EnemyAvatar : Fighter
     protected override IEnumerator Die()
     {
         yield return base.Die();
-        GameManager.instance.EnemyKilled();
+        GameManager.Instance.EnemyKilled();
         Destroy(gameObject);
     }
 

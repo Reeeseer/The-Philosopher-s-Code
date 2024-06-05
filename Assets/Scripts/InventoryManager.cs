@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -23,8 +24,11 @@ public class InventoryManager : MonoBehaviour
 
     public void SetInventory(IngredientPreset preset)
     {
-        //TODO: set up a scriptable object for inventory resetting
-        IngredientsList = preset.Ingredients;
+        IngredientsList.Clear();
+        foreach (var i in preset.Ingredients)
+        {
+            IngredientsList.Add(new InventorySlot(i));
+        }
     }
 
     internal void ResetIngredients(object inventoryPreset)

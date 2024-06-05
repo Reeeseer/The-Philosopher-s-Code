@@ -1,17 +1,30 @@
-﻿// This script was created to handle the behavior for the target selection part of the player's turn
+﻿// This script was created to track a run during endless mode
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EndlessTracker : MonoBehaviour
 {
-    public static EndlessTracker instance;
     public int EnemiesKilledThisRun;
 
-    private void Awake()
+    void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);
+        StartCoroutine(Load());
+    }
+
+    IEnumerator Load()
+    {
+        while (GameManager.Instance == null || PlayerDataTracker.Instance == null) yield return null;
+        
+        GameManager.Instance.OnEnemyKilled += HandleEnemyKilled;
+        PlayerDataTracker.Instance.UpdateScores(addRun: 1);
+    }
+
+    void HandleEnemyKilled()
+    {
+        EnemiesKilledThisRun += 1;
+        PlayerDataTracker.Instance.UpdateScores(enemiesKilledThisRun: EnemiesKilledThisRun, addTotalEnemiesKilled: 1);
     }
 }

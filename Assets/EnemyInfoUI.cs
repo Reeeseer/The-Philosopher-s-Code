@@ -13,11 +13,11 @@ public class EnemyInfoUI : MonoBehaviour
 
     public IEnumerator Load()
     {
-        while (GameManager.instance == null)
+        while (GameManager.Instance == null)
         {
             yield return null;
         }
 
-        _enemyIcon.sprite = GameManager.instance.EnemyData.Icon;
+        _enemyIcon.sprite = GameManager.Instance.EnemyData.Icon;
     }
 }

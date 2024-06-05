@@ -16,12 +16,12 @@ public class PlayerActionUI : MonoBehaviour
 
     public void PlayerAttack()
     {
-        GameManager.instance.Player.Attack();
+        GameManager.Instance.Player.Attack();
     }
 
     void PlayerTurnStart(PlayerAvatar obj)
     {
-        if (GameManager.instance.GameOver) { return; }
+        if (GameManager.Instance.GameOver) { return; }
         _brewPanel.gameObject.SetActive(true);
         _ifPanel.gameObject.SetActive(false);
         _ingredientsPanel.gameObject.SetActive(false);

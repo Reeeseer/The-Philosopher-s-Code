@@ -41,9 +41,9 @@ public class PotionManager : MonoBehaviour
         CurrentPotion.transform.SetParent(null);
         StartCoroutine(CurrentPotion.Activate());
 
-        if (GameManager.instance.targets.Count == 2)
+        if (GameManager.Instance.Targets.Count == 2)
             CurrentPotion.RB.velocity = _bothThrowVelocity;
-        else if (GameManager.instance.targets.Contains(GameManager.instance.Player))
+        else if (GameManager.Instance.Targets.Contains(GameManager.Instance.Player))
             CurrentPotion.RB.velocity = _selfThrowVelocity;
         else
             CurrentPotion.RB.velocity = _enemyThrowVelocity;

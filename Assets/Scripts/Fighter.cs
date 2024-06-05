@@ -15,7 +15,7 @@ public class Fighter : MonoBehaviour, IAmTarget
 
     protected Animator _animator;
 
-    protected virtual void OnEnable()
+    protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
     }
@@ -84,8 +84,9 @@ public class Fighter : MonoBehaviour, IAmTarget
 
     protected void ApplyHealing(int healing)
     {
-        if (CurrHealth > 0)
-            CurrHealth += healing;
+        if (CurrHealth > 0) CurrHealth += healing;
+
+        if (CurrHealth > MaxHealth) CurrHealth = MaxHealth;
 
         OnHealthChanged?.Invoke(CurrHealth, MaxHealth);
     }
@@ -95,13 +96,13 @@ public class Fighter : MonoBehaviour, IAmTarget
         CurrHealth -= damage;
         OnHealthChanged?.Invoke(CurrHealth, MaxHealth);
 
-        if (CurrHealth <= 0 && !GameManager.instance.GameOver)
+        if (CurrHealth <= 0 && !GameManager.Instance.GameOver)
         {
-            GameManager.instance.GameOver = true;
+            GameManager.Instance.SetGameOver();
             var player = GetComponent<PlayerAvatar>();
             if (player != null) { StartCoroutine(player.Die()); }
             var enemy = GetComponent<EnemyAvatar>();
-            if (enemy != null && GameManager.instance.Player.CurrHealth > 0) { StartCoroutine(enemy.Die()); }
+            if (enemy != null && GameManager.Instance.Player.CurrHealth > 0) { StartCoroutine(enemy.Die()); }
         }
     }
 

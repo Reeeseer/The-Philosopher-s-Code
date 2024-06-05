@@ -10,15 +10,15 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         SetOwner();
-        GameManager.instance.OnEnemyChange += ChangeOwner;
+        GameManager.Instance.OnEnemyChange += ChangeOwner;
     }
 
     private void SetOwner()
     {
         if (_id == "Player")
-            _owner = GameManager.instance.Player;
+            _owner = GameManager.Instance.Player;
         else if (_id == "Enemy")
-            _owner = GameManager.instance.Enemy;
+            _owner = GameManager.Instance.Enemy;
 
         _owner.OnHealthChanged += UpdateHealth;
     }

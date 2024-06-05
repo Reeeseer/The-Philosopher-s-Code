@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,14 +14,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] IngredientPreset _inventoryPreset;
     [SerializeField] bool _isEndless;
 
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public PlayerAvatar Player;
     public EnemyAvatar Enemy;
     public PlayerActionUI PlayerActionUi;
     public EnemyData EnemyData;
 
-    public List<Fighter> targets = new();
+    [FormerlySerializedAs("targets")] public List<Fighter> Targets = new();
 
     public Action GameRestart;
     public Action<bool> OnGameOver;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
         Player = FindObjectOfType<PlayerAvatar>();
@@ -83,7 +84,6 @@ public class GameManager : MonoBehaviour
 
     void StartNextFight()
     {
-        EndlessTracker.instance.EnemiesKilledThisRun += 1;
         SetInventory(_inventoryPreset);
         StartCoroutine(BattleTurnManager.instance.StartGame());
     }
@@ -98,6 +98,11 @@ public class GameManager : MonoBehaviour
         OnEnemySpawn.Invoke();
         Enemy = enemy;
         OnEnemyChange.Invoke(enemy, data);
+    }
+
+    internal void SetGameOver()
+    {
+        if (!_isEndless) GameOver = true;
     }
 }
 

@@ -39,7 +39,7 @@ public class Ingredient : ScriptableObject
         if (Type != IngredientType.Code)
             return;
 
-        EffectStrength = GameManager.instance.Player.CurrentAP;
+        EffectStrength = GameManager.Instance.Player.CurrentAP;
         APCost = EffectStrength;
     }
 

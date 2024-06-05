@@ -16,6 +16,16 @@ public class InventorySlot
     public Ingredient Ingredient;
 
     /// <summary>
+    /// THis is used to create a copy of the given inventory slot i
+    /// </summary>
+    /// <param name="i"></param>
+    public InventorySlot(InventorySlot i)
+    {
+        this.Amount = i.Amount;
+        this.Ingredient = i.Ingredient;
+    }
+
+    /// <summary>
     /// Sets the slots amount to the given number
     /// </summary>
     /// <param name="newAmount">the number the amount will be set to</param>

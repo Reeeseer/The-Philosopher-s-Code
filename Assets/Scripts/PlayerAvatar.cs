@@ -6,24 +6,31 @@ public class PlayerAvatar : Fighter
     public int CurrentAP;
     public int MaxAp;
 
-    public Action<int> OnAPChange;
-    public Action<int> OnHPChange;
+    public Action<int> OnApChange;
+    public Action<int> OnHpChange;
 
-    protected override void OnEnable()
+    protected override void Awake()
     {
         StartCoroutine(Load());
     }
 
-    public IEnumerator Load()
+    IEnumerator Load()
     {
-        while (BattleTurnManager.instance == null)
+        while (BattleTurnManager.instance == null || GameManager.Instance == null)
         {
             yield return null;
         }
 
-        base.OnEnable();
+        base.Awake();
         BattleTurnManager.instance.OnPlayerTurnStart += TurnStart;
+        GameManager.Instance.OnEnemySpawn += HandleEnemySpawn;
     }
+
+    private void HandleEnemySpawn()
+    {
+        ApplyHealing(MaxHealth);
+    }
+
     private void TurnStart(PlayerAvatar obj)
     {
         CurrentAP = MaxAp;
@@ -37,19 +44,19 @@ public class PlayerAvatar : Fighter
     protected override IEnumerator Die()
     {
         yield return base.Die();
-        GameManager.instance.LoseState();
+        GameManager.Instance.LoseState();
     }
 
     internal void RestoreAP()
     {
         CurrentAP = MaxAp;
-        OnAPChange?.Invoke(CurrentAP);
+        OnApChange?.Invoke(CurrentAP);
     }
 
     internal void RemoveAP(int ap)
     {
         CurrentAP -= ap;
-        OnAPChange?.Invoke(CurrentAP);
+        OnApChange?.Invoke(CurrentAP);
     }
 
     private void OnDisable()
