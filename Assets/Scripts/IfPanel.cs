@@ -6,12 +6,12 @@ public class IfPanel : MonoBehaviour
 {
     public void SetTarget(Fighter target, Fighter additionalTarget = null)
     {
-        GameManager.instance.targets.Clear();
-        GameManager.instance.targets.Add(target);
+        GameManager.Instance.Targets.Clear();
+        GameManager.Instance.Targets.Add(target);
         if (additionalTarget != null)
-            GameManager.instance.targets.Add(additionalTarget);
+            GameManager.Instance.Targets.Add(additionalTarget);
 
-        Debug.Log(GameManager.instance.targets.Count);
+        Debug.Log(GameManager.Instance.Targets.Count);
 
         //TODO: fix this:
         GetComponentInParent<PlayerActionUI>().ShowIngredientsPanel();
@@ -19,16 +19,16 @@ public class IfPanel : MonoBehaviour
 
     public void SetTargetAsPlayer()
     {
-        SetTarget(GameManager.instance.Player);
+        SetTarget(GameManager.Instance.Player);
     }
 
     public void SetTargetAsEnemy()
     {
-        SetTarget(GameManager.instance.Enemy);
+        SetTarget(GameManager.Instance.Enemy);
     }
 
     public void SetTargetAsBoth()
     {
-        SetTarget(GameManager.instance.Player, GameManager.instance.Enemy);
+        SetTarget(GameManager.Instance.Player, GameManager.Instance.Enemy);
     }
 }

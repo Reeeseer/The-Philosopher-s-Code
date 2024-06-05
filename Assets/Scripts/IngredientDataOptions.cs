@@ -4,7 +4,7 @@ using System;
 
 [Serializable]
 public static class IngredientDataOptions
-{ 
+{
     public enum EffectType { Damage, Healing, ForLoop, Multiply, Nothing, Return }
     public enum IngredientType { Potion, Code }
 }

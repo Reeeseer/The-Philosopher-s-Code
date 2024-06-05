@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PotionManager : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class PotionManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -29,7 +27,7 @@ public class PotionManager : MonoBehaviour
 
     public void AddIngredientToPotion(Ingredient ingredient)
     {
-        if(CurrentPotion == null)
+        if (CurrentPotion == null)
         {
             CurrentPotion = Instantiate(PotionPrefab, _potionSpawn);
             CurrentPotion.Initialize();
@@ -43,9 +41,9 @@ public class PotionManager : MonoBehaviour
         CurrentPotion.transform.SetParent(null);
         StartCoroutine(CurrentPotion.Activate());
 
-        if (GameManager.instance.targets.Count == 2)
+        if (GameManager.Instance.Targets.Count == 2)
             CurrentPotion.RB.velocity = _bothThrowVelocity;
-        else if (GameManager.instance.targets.Contains(GameManager.instance.Player))
+        else if (GameManager.Instance.Targets.Contains(GameManager.Instance.Player))
             CurrentPotion.RB.velocity = _selfThrowVelocity;
         else
             CurrentPotion.RB.velocity = _enemyThrowVelocity;

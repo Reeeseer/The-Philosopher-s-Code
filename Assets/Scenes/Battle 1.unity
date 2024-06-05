@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10486908}
-  m_LocalRotation: {x: -0.000000104795284, y: 0.72232425, z: -0.69155455, w: -0.00000010945799}
+  m_LocalRotation: {x: 0.000000104795284, y: 0.72232425, z: -0.69155455, w: 0.00000010945799}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11018,6 +11018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _victoryScreen: {fileID: 1364683064}
   _gameoverScreen: {fileID: 251165885}
+  _inventoryPreset: {fileID: 11400000, guid: 0d62b5c9dd32cb6488249c5c6d488af0, type: 2}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   PlayerActionUi: {fileID: 0}
@@ -13143,7 +13144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700432468}
-  m_LocalRotation: {x: 0.21110268, y: 0.000000003863732, z: -8.344498e-10, w: 0.9774639}
+  m_LocalRotation: {x: 0.21110268, y: 0.0000000038637302, z: -8.3444907e-10, w: 0.9774639}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13755,7 +13756,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772596245}
-  m_LocalRotation: {x: -4.1439417e-16, y: 0.9724089, z: -0.23328316, w: 4.901165e-17}
+  m_LocalRotation: {x: 4.1439417e-16, y: 0.9724089, z: -0.23328316, w: -4.901165e-17}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

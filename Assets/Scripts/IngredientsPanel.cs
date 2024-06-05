@@ -49,7 +49,7 @@ public class IngredientsPanel : MonoBehaviour
         foreach (var i in InventoryManager.Instance.IngredientsList)
         {
             if (i.Ingredient.Type != type)
-                continue; 
+                continue;
 
             var card = Instantiate(_prefab, _selectionParent);
             card.Initialize(_data, i);
@@ -78,7 +78,7 @@ public class IngredientsPanel : MonoBehaviour
             return;
         }
 
-        if(_selectedSlot.Ingredient.APCost > GameManager.instance.Player.CurrentAP)
+        if (_selectedSlot.Ingredient.APCost > GameManager.Instance.Player.CurrentAP)
         {
             ErrorMessaging.instance.ShowError("Not enough AP");
             return;
@@ -88,14 +88,14 @@ public class IngredientsPanel : MonoBehaviour
 
         if (_selectedSlot.Ingredient.Type == IngredientDataOptions.IngredientType.Code)
         {
-            PotionManager.instance.CurrentPotion.CodeStrength = GameManager.instance.Player.CurrentAP;
+            PotionManager.instance.CurrentPotion.CodeStrength = GameManager.Instance.Player.CurrentAP;
         }
 
         PotionManager.instance.AddIngredientToPotion(_selectedSlot.Ingredient);
-        GameManager.instance.Player.RemoveAP(_selectedSlot.Ingredient.APCost);
+        GameManager.Instance.Player.RemoveAP(_selectedSlot.Ingredient.APCost);
         _selectedSlot.AddAmount(-1);
         ListOutIngredients(_selectedSlot.Ingredient.Type);
-        
+
 
         _selectedSlot = null;
     }

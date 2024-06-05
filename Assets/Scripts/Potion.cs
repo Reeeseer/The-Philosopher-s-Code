@@ -31,7 +31,7 @@ public class Potion : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        if(ingredient.Type == IngredientDataOptions.IngredientType.Code)
+        if (ingredient.Type == IngredientDataOptions.IngredientType.Code)
             ingredient.SetStrength();
 
         IngredientsInPotion.Add(ingredient);
@@ -40,7 +40,7 @@ public class Potion : MonoBehaviour
     private IEnumerator ApplyEffectsToTargets()
     {
 
-        foreach (var t in GameManager.instance.targets)
+        foreach (var t in GameManager.Instance.Targets)
         {
             StartCoroutine(t.ApplyEffects(this));
         }
@@ -70,7 +70,7 @@ public class Potion : MonoBehaviour
     {
         Disappear();
         yield return StartCoroutine(ApplyEffectsToTargets());
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         BattleTurnManager.instance.EnemyTurn();
         Destroy(gameObject);
     }

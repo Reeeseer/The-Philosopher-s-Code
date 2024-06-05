@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,9 +13,9 @@ public class APCounter : MonoBehaviour
 
     private IEnumerator Load()
     {
-        while (GameManager.instance == null)
+        while (GameManager.Instance == null)
             yield return null;
-        GameManager.instance.Player.OnAPChange += UpdateAP;
+        GameManager.Instance.Player.OnApChange += UpdateAP;
     }
 
     private void UpdateAP(int ap)
@@ -27,6 +25,6 @@ public class APCounter : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.instance.Player.OnAPChange -= UpdateAP;
+        GameManager.Instance.Player.OnApChange -= UpdateAP;
     }
 }

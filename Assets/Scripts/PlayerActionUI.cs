@@ -1,5 +1,4 @@
 ﻿// This script is the manager for the UI the player uses to take their turn
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,12 +16,12 @@ public class PlayerActionUI : MonoBehaviour
 
     public void PlayerAttack()
     {
-        GameManager.instance.Player.Attack();
+        GameManager.Instance.Player.Attack();
     }
 
     void PlayerTurnStart(PlayerAvatar obj)
     {
-        if (GameManager.instance.GameOver) { return; }
+        if (GameManager.Instance.GameOver) { return; }
         _brewPanel.gameObject.SetActive(true);
         _ifPanel.gameObject.SetActive(false);
         _ingredientsPanel.gameObject.SetActive(false);
